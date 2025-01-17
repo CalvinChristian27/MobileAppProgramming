@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ProductMenuController;
 use App\Http\Controllers\Api\PromoController;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\CartController;
 
 /**
  * route "/register"
@@ -43,3 +44,5 @@ Route::get('/promo', [PromoController::class, 'getPromo']);
 Route::get('/history/{productName}', [HistoryController::class, 'getHistory']);
 
 Route::get('/event', [EventController::class, 'getEvent']);
+
+Route::get('/cart/{transactionId}', [CartController::class, 'getCart'])->middleware('auth:sanctum');
